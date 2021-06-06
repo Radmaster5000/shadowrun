@@ -19,5 +19,9 @@ Functions defined so far:
 
 intro()
 rules()
-sneak_inside()
-initial_log_in()
+sneak_inside()	returns choice
+initial_log_in()	returns hack1
+searching()	returns hack2
+task()	returns hack3
+logout() returns hack4
+escape() returns hack5

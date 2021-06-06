@@ -107,7 +107,7 @@ def initial_log_in():
 
 	hack1 = 0
 
-	while (hack1 != 1 or hack1 != 2):
+	while (hack1 != 1 or hack1 != 2 or hack1 != 3):
 		try:
 			hack1 = int(input('>>> '))
 			if (hack1 == 1 or hack1 == 2 or hack1 == 3 or hack1 == 4):
@@ -117,12 +117,130 @@ def initial_log_in():
 		except ValueError:
 			print('Type a number, stupid!')
 
+def searching():
+	print("""
+	*****************************************
+	             INTEROGATE SYSTEM
+	*****************************************
+	
+	*** FLAVOUR TEXT ABOUT SEARCHING ***
+
+		METHODS, CHANCES, AND PENALTIES
+		1 - Quick search (33% success rate)
+			1 strike penalty
+		2 - Moderate search (50% success rate)
+			2 strike penalty
+		3 - Full search (75% success rate)
+			3 strike penalty""")
+
+	hack2 = 0
+
+	while (hack2 != 1 or hack2 != 2 or hack2 != 3):
+		try:
+			hack2 = int(input('>>> '))
+			if (hack2 == 1 or hack2 == 2 or hack2 == 3):
+				return hack2
+			else:
+				print('ooops! Try again!')
+		except ValueError:
+			print('Type a number, stupid!')
+
+def task():
+	print("""
+	*****************************************
+	             TASK
+	*****************************************
+	
+	*** FLAVOUR TEXT ABOUT TASK ***
+
+		THIS WILL DEPEND ON TASK, SO FOR NOW:
+		1 - Option 1
+		2 - Option 2""")
+
+
+	hack3 = 0
+
+	while (hack3 != 1 or hack3 != 2):
+		try:
+			hack3 = int(input('>>> '))
+			if (hack3 == 1 or hack3 == 2):
+				return hack3
+			else:
+				print('ooops! Try again!')
+		except ValueError:
+			print('Type a number, stupid!')
+
+def log_out():
+	print("""
+	*****************************************
+	             QUIT OUT OF SYSTEM
+	*****************************************
+	
+	*** FLAVOUR TEXT ABOUT LOGGING OUT ***
+
+		METHODS, CHANCES, AND PENALTIES
+		1 - Rip and Tear (33% success rate)
+			2 strike penalty
+		2 - Calculated shutdown (50% success rate)
+			1 strike penalty
+		3 - Light the torch (50% success rate)
+			3 strike penalty for fail
+			All strikes cleared for success""")
+
+	hack4 = 0
+
+	while (hack4 != 1 or hack4 != 2 or hack4 != 3):
+		try:
+			hack4 = int(input('>>> '))
+			if (hack4 == 1 or hack4 == 2 or hack4 == 3):
+				return hack4
+			else:
+				print('ooops! Try again!')
+		except ValueError:
+			print('Type a number, stupid!')
+
+def escape():
+	print("""
+	*****************************************
+	             GET OUT OF DODGE
+	*****************************************
+	
+	*** FLAVOUR TEXT ABOUT LEAVING ***
+
+		METHODS, CHANCES, AND PENALTIES
+		1 - Fake it (33% success rate)
+			2 strike penalty
+		2 - Stealth (50% success rate)
+			1 strike penalty
+		3 - Guns blazing (50% success rate)
+			3 strike penalty for fail
+			BONUS PAYMENT FROM EMPLOYER""")
+
+	hack5 = 0
+
+	while (hack5 != 1 or hack5 != 2 or hack5 != 3):
+		try:
+			hack5 = int(input('>>> '))
+			if (hack5 == 1 or hack5 == 2 or hack5 == 3):
+				return hack5
+			else:
+				print('ooops! Try again!')
+		except ValueError:
+			print('Type a number, stupid!')
 
 
 option = intro(0)
 choice = sneak_inside()
 log_in = initial_log_in()
+search = searching()
+task_res = task()
+leave = log_out()
+run = escape()
 
 print("Intro option = " + str(option))
 print("Sneak Inside option = " + str(choice))
 print("Initial log in option = " + str(log_in))
+print("Search option = " + str(search))
+print("Task option = " + str(task_res))
+print("Log out option = " + str(leave))
+print("Escape option = " + str(run))
