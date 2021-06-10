@@ -64,12 +64,43 @@ def rules():
 		time.sleep(1)
 		rules()
 
-def sneak_inside():
+def mission_choice():
+	print("""
+	*****************************************
+	           CHOOSE YOUR MISSION
+	*****************************************
+	
+	*** FLAVOUR TEXT ABOUT MISSION CHOICE ***
+
+		SELECT AN OPTION
+		1 - Find data
+		2 - Disable security
+
+	""")
+	mission = 0
+
+	while (mission != 1 or mission != 2):
+		try:
+			mission = int(input('>>> '))
+			if (mission == 1):
+				return 'data'
+			elif (mission == 2):
+				return 'security'
+			else:
+				print('ooops! Try again!')
+		except ValueError:
+			print('Type a number, stupid!')
+
+
+def sneak_inside(mission):
 	print("""
 	*****************************************
 	             GET INSIDE
 	*****************************************
-	
+	Current mission: """ + mission)
+
+	print("""
+
 	*** FLAVOUR TEXT ABOUT SNEAKING IN ***
 
 		SELECT AN OPTION
@@ -90,7 +121,7 @@ def sneak_inside():
 		except ValueError:
 			print('Type a number, stupid!')
 
-def initial_log_in():
+def initial_log_in(mission):
 	print("""
 	*****************************************
 	             COMPROMISE SYSTEM
@@ -117,7 +148,7 @@ def initial_log_in():
 		except ValueError:
 			print('Type a number, stupid!')
 
-def searching():
+def searching(mission):
 	print("""
 	*****************************************
 	             INTEROGATE SYSTEM
@@ -145,7 +176,7 @@ def searching():
 		except ValueError:
 			print('Type a number, stupid!')
 
-def task():
+def task(mission):
 	print("""
 	*****************************************
 	             TASK
@@ -170,7 +201,7 @@ def task():
 		except ValueError:
 			print('Type a number, stupid!')
 
-def log_out():
+def log_out(mission):
 	print("""
 	*****************************************
 	             QUIT OUT OF SYSTEM
@@ -199,7 +230,7 @@ def log_out():
 		except ValueError:
 			print('Type a number, stupid!')
 
-def escape():
+def escape(mission):
 	print("""
 	*****************************************
 	             GET OUT OF DODGE
@@ -230,12 +261,13 @@ def escape():
 
 
 option = intro(0)
-choice = sneak_inside()
-log_in = initial_log_in()
-search = searching()
-task_res = task()
-leave = log_out()
-run = escape()
+mission = mission_choice()
+choice = sneak_inside(mission)
+log_in = initial_log_in(mission)
+search = searching(mission)
+task_res = task(mission)
+leave = log_out(mission)
+run = escape(mission)
 
 print("Intro option = " + str(option))
 print("Sneak Inside option = " + str(choice))
