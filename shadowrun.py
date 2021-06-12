@@ -1,4 +1,5 @@
 import time
+from missionText import missionText
 
 # Creating the Intro screen
 
@@ -97,15 +98,13 @@ def sneak_inside(mission):
 	*****************************************
 	             GET INSIDE
 	*****************************************
-	Current mission: """ + mission)
+	""" + missionText["sneak_inside_" + mission])
 
 	print("""
 
-	*** FLAVOUR TEXT ABOUT SNEAKING IN ***
-
 		SELECT AN OPTION
 		1 - Sneak past guard
-		2 - Take down guard
+		2 - Take down guard 
 
 	""")
 
@@ -126,8 +125,10 @@ def initial_log_in(mission):
 	*****************************************
 	             COMPROMISE SYSTEM
 	*****************************************
+	""" + missionText["initial_log_in_" + mission])
+
+	print("""
 	
-	*** FLAVOUR TEXT ABOUT LOGGING IN ***
 
 		SELECT AN OPTION
 		1 - Brute force password
