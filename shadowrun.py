@@ -114,13 +114,17 @@ def sneak_inside(mission):
 		try:
 			choice = int(input('>>> '))
 			if (choice == 1 or choice == 2):
-				return choice
+				if (choice == 2):
+					attackGuard = True
+				else:
+					attackGuard = False
+				return attackGuard, choice
 			else:
 				print('ooops! Try again!')
 		except ValueError:
 			print('Type a number, stupid!')
 
-def initial_log_in(mission):
+def initial_log_in(mission, attackGuard):
 	print("""
 	*****************************************
 	             COMPROMISE SYSTEM
@@ -134,7 +138,8 @@ def initial_log_in(mission):
 		1 - Brute force password
 		2 - Use professional crypto program
 		3 - Use custom program""")
-	if (choice == 2):
+	#if (choice == 2):
+	if (attackGuard == True):
 		print("		4 - Use guard's details (HIDDEN)")
 
 	hack1 = 0
@@ -261,10 +266,11 @@ def escape(mission):
 			print('Type a number, stupid!')
 
 
+attackGuard = False
 option = intro(0)
 mission = mission_choice()
-choice = sneak_inside(mission)
-log_in = initial_log_in(mission)
+attackGuard, choice = sneak_inside(mission)
+log_in = initial_log_in(mission, attackGuard)
 search = searching(mission)
 task_res = task(mission)
 leave = log_out(mission)
