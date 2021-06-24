@@ -1,5 +1,12 @@
 import time
 from missionText import missionText
+import random
+
+
+def roll(modifier):
+	result = random.randint(1,6) + modifier
+	print(result)
+	return result
 
 # Creating the Intro screen
 
@@ -116,9 +123,29 @@ def sneak_inside(mission):
 			if (choice == 1 or choice == 2):
 				if (choice == 2):
 					attackGuard = True
+					test = roll(modifier)
+					if (test > 3):
+						print('You lay the smacketh down on the guard and bag yourself a keycard. Well done.')
+						return attackGuard, choice
+					else:
+						print('The guard draws his gun and shoots you.')
+						quit()
 				else:
 					attackGuard = False
-				return attackGuard, choice
+					test = roll(modifier)
+					if (test > 3):
+						print('You sneak past the loser stood outside. Well done.')
+						return attackGuard, choice
+					else:
+						print("Oh sh*t, you've been spotted.")
+						attackGuard = True
+						test = roll(modifier)
+						if (test > 3):
+							print('You lay the smacketh down on the guard and bag yourself a keycard. Well done.')
+							return attackGuard, choice
+						else:
+							print('The guard draws his gun and shoots you.')
+							quit()
 			else:
 				print('ooops! Try again!')
 		except ValueError:
@@ -265,7 +292,7 @@ def escape(mission):
 		except ValueError:
 			print('Type a number, stupid!')
 
-
+modifier = 0
 attackGuard = False
 option = intro(0)
 mission = mission_choice()
